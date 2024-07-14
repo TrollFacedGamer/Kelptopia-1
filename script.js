@@ -28,8 +28,42 @@ const text = document.getElementById("text")
  
 //Start
 function characterCreation() {
+    text.innerText = "Build Your character"
     
-    choices.innerHTML = "<label></label>"
+    const vitalityLabel = document.createElement('label')
+    vitalityLabel.for
+
+    const baseVitalityStat = document.createElement('input')
+    baseVitalityStat.type = "number"
+    interface.appendChild(baseVitalityStat)
+    
+    const baseEnduranceStat = document.createElement('input')
+    baseEnduranceStat.type = "number"
+    interface.appendChild(baseEnduranceStat)
+
+    const baseStrengthStat = document.createElement('input')
+    baseStrengthStat.type = "number"
+    interface.appendChild(baseStrengthStat)
+
+    const baseAgilityStat = document.createElement('input')
+    baseAgilityStat.type = "number"
+    interface.appendChild(baseAgilityStat)
+
+    const baseIntelligenceStat = document.createElement('input')
+    baseIntelligenceStat.type = "number"
+    interface.appendChild(baseIntelligenceStat)
+
+    const baseWisdomStat = document.createElement('input')
+    baseWisdomStat.type = "number"
+    interface.appendChild(baseWisdomStat)
+
+    const basePerceptionStat = document.createElement('input')
+    basePerceptionStat.type = "number"
+    interface.appendChild(basePerceptionStat)
+
+    const baseCharismaStat = document.createElement('input')
+    baseCharismaStat.type = "number"
+    interface.appendChild(baseCharismaStat)
 }
 
 function stuff() {
