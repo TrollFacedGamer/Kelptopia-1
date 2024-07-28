@@ -6,6 +6,13 @@ const interface = document.getElementById("interface");
     const choices = document.getElementById("choices");
 const credits = document.getElementById("credits")
 //ElementStat
+const levelStat = document.getElementById("levelStat")
+const currentEXPStat = document.getElementById("currentEXPStat")
+const maxEXPStat = document.getElementById("maxEXPStat")
+
+const currentHealthStat = document.getElementById("currentHealthStat")
+const currentManaStat = document.getElementById("currentManaStat")
+
 const currentVitalityStat = document.getElementById("currentVitalityStat");
 const currentEnduranceStat = document.getElementById("currentEnduranceStat");
 const currentStrengthStat = document.getElementById("currentStrengthStat");
@@ -15,6 +22,9 @@ const currentWisdomStat = document.getElementById("currentWisdomStat");
 const currentPerceptionStat = document.getElementById("currentPerceptionStat");
 const currentCharismaStat = document.getElementById("currentCharismaStat");
 
+const maxHealthStat = document.getElementById("maxHealthStat")
+const maxManaStat = document.getElementById("maxManaStat")
+
 const maxVitalityStat = document.getElementById("maxVitalityStat");
 const maxEnduranceStat = document.getElementById("maxEnduranceStat");
 const maxStrengthStat = document.getElementById("maxStrengthStat");
@@ -23,6 +33,24 @@ const maxIntelligenceStat = document.getElementById("maxIntelligenceStat");
 const maxWisdomStat = document.getElementById("maxWisdomStat");
 const maxPerceptionStat = document.getElementById("maxPerceptionStat");
 const maxCharismaStat = document.getElementById("maxCharismaStat");
+
+function resetStat() {
+    currentVitalityStat.innerText = maxVitalityStat.innerText
+    currentEnduranceStat.innerText = maxEnduranceStat.innerText
+    currentStrengthStat.innerText = maxStrengthStat.innerText 
+    currentAgilityStat.innerText = maxAgilityStat.innerText
+    currentIntelligenceStat.innerText = maxIntelligenceStat.innerText
+    currentWisdomStat.innerText = maxWisdomStat.innerText
+    currentPerceptionStat.innerText = maxPerceptionStat.innerText
+    currentCharismaStat.innerText = maxCharismaStat.innerText
+    
+    maxHealthStat.innerText = Number(maxVitalityStat.innerText) * Number(10)
+    if (Number(levelStat.innerText) > 0) {
+        maxManaStat.innerText = Number(maxWisdomStat.innerText) * Number(10)
+    }
+    currentHealthStat.innerText = maxHealthStat.innerText
+    currentManaStat.innerText = maxManaStat.innerText
+}
 //text
 const text = document.getElementById("text")
 
@@ -44,6 +72,8 @@ function characterCreation() {
     const baseVitalityStat = document.createElement("input")
     baseVitalityStat.type = "number"
     baseVitalityStat.min = 0
+    baseVitalityStat.max = 5
+    baseVitalityStat.value = 0
     baseVitalityStat.id = "baseVitalityStat"
     choices.appendChild(baseVitalityStat)
     
@@ -56,6 +86,8 @@ function characterCreation() {
     const baseEnduranceStat = document.createElement("input")
     baseEnduranceStat.type = "number"
     baseEnduranceStat.min = 0
+    baseEnduranceStat.max = 5
+    baseEnduranceStat.value = 0
     baseEnduranceStat.id = "baseEnduranceStat"
     choices.appendChild(baseEnduranceStat)
 
@@ -68,6 +100,8 @@ function characterCreation() {
     const baseStrengthStat = document.createElement("input")
     baseStrengthStat.type = "number"
     baseStrengthStat.min = 0
+    baseStrengthStat.max = 5
+    baseStrengthStat.value = 0
     baseStrengthStat.id = "baseStrengthStat"
     choices.appendChild(baseStrengthStat)
 
@@ -80,6 +114,8 @@ function characterCreation() {
     const baseAgilityStat = document.createElement("input")
     baseAgilityStat.type = "number"
     baseAgilityStat.min = 0
+    baseAgilityStat.max = 5
+    baseAgilityStat.value = 0
     baseAgilityStat.id = "baseAgilityStat"
     choices.appendChild(baseAgilityStat)
 
@@ -92,6 +128,8 @@ function characterCreation() {
     const baseIntelligenceStat = document.createElement("input")
     baseIntelligenceStat.type = "number"
     baseIntelligenceStat.min = 0
+    baseIntelligenceStat.max = 5
+    baseIntelligenceStat.value = 0
     baseIntelligenceStat.id = "baseIntelligenceStat"
     choices.appendChild(baseIntelligenceStat)
 
@@ -104,6 +142,8 @@ function characterCreation() {
     const baseWisdomStat = document.createElement("input")
     baseWisdomStat.type = "number"
     baseWisdomStat.min = 0
+    baseWisdomStat.max = 5
+    baseWisdomStat.value = 0
     baseWisdomStat.id = "baseWisdomStat"
     choices.appendChild(baseWisdomStat)
 
@@ -116,6 +156,8 @@ function characterCreation() {
     const basePerceptionStat = document.createElement("input")
     basePerceptionStat.type = "number"
     basePerceptionStat.min = 0
+    basePerceptionStat.max = 5
+    basePerceptionStat.value = 0
     basePerceptionStat.id = "basePerceptionStat"
     choices.appendChild(basePerceptionStat)
 
@@ -128,11 +170,28 @@ function characterCreation() {
     const baseCharismaStat = document.createElement("input")
     baseCharismaStat.type = "number"
     baseCharismaStat.min = 0
+    baseCharismaStat.max = 5
+    baseCharismaStat.value = 0
     baseCharismaStat.id = "baseCharismaStat"
     choices.appendChild(baseCharismaStat)
 
     choices.appendChild(document.createElement("br"))
 
+    const roleLabel = document.createElement("label");
+    roleLabel.innerText = "Role: "
+    roleLabel.setAttribute("for", "roleSelection");
+    choices.appendChild(roleLabel)
+
+    const roleSelection = document.createElement("select");
+    roleSelection.id = "roleSelection"
+    choices.appendChild(roleSelection)
+
+    const roleChoicePriest = document.createElement("option")
+    roleChoicePriest.innerText = "Priest"
+    roleSelection.appendChild(roleChoicePriest)
+
+    choices.appendChild(document.createElement("br"))
+    
     const resetButton = document.createElement("button")
     resetButton.id = "resetButton"
     resetButton.innerText = "Reset"
@@ -144,25 +203,52 @@ function characterCreation() {
     doneButton.id = "doneButton"
     doneButton.innerText = "Done"
     doneButton.addEventListener("click", () => {
-        if (baseVitalityStat.value + 
-            baseEnduranceStat.value + 
-            baseStrengthStat.value + 
-            baseAgilityStat.value + 
-            baseIntelligenceStat.value + 
-            baseWisdomStat.value +
-            basePerceptionStat.value +
-            baseCharismaStat.value ==
-            5
-        ) {
-            alert("stuff")
-        }
-        else {
-            alert("invaild")
-        }
+        baseStatUpdate()
     })
     choices.appendChild(doneButton)
+
+    function baseStatUpdate() {
+        if (Number(baseVitalityStat.value) + 
+        Number(baseEnduranceStat.value) + 
+        Number(baseStrengthStat.value) + 
+        Number(baseAgilityStat.value) + 
+        Number(baseIntelligenceStat.value) + 
+        Number(baseWisdomStat.value) +
+        Number(basePerceptionStat.value) +
+        Number(baseCharismaStat.value) ==
+        5
+    ) {
+        maxVitalityStat.innerText = Number(baseVitalityStat.value) + 1
+        maxEnduranceStat.innerText = Number(baseEnduranceStat.value) + 1
+        maxStrengthStat.innerText = Number(baseStrengthStat.value) + 1
+        maxAgilityStat.innerText = Number(baseAgilityStat.value) + 1
+        maxIntelligenceStat.innerText = Number(baseIntelligenceStat.value) + 1
+        maxWisdomStat.innerText = Number(baseWisdomStat.value) + 1
+        maxPerceptionStat.innerText = Number(basePerceptionStat.value) + 1
+        maxCharismaStat.innerText = Number(baseCharismaStat.value) + 1
+
+        resetStat()
+
+        if (roleSelection.innerText = "Priest") {
+            priestScene1Day1()
+        }
+        else {
+            characterCreation()
+            alert("role error")
+        }
+    }
+    else {
+        alert("invaild")
+    }
+    }
 }
 
+function priestScene1Day1() {
+    clear()
+    
+}
+
+/*
 function stuff() {
     const newButton = document.createElement("button");
     newButton.textContent = "Click me!";
@@ -171,5 +257,4 @@ function stuff() {
         alert("New button clicked!");
       });
 }
-
-
+*/
