@@ -6,7 +6,8 @@ const interface = document.getElementById("interface");
     const choices = document.getElementById("choices");
 const credits = document.getElementById("credits")
 //ElementStat
-const money = document.getElementById("money")
+const currentMoney = document.getElementById("currentMoney")
+const currentInventory = document.getElementById("currentInventory")
 
 const levelStat = document.getElementById("levelStat")
 const currentEXPStat = document.getElementById("currentEXPStat")
@@ -14,6 +15,9 @@ const maxEXPStat = document.getElementById("maxEXPStat")
 
 const currentHealthStat = document.getElementById("currentHealthStat")
 const currentManaStat = document.getElementById("currentManaStat")
+
+const currentHungerStat = document.getElementById("currentHungerStat")
+const currentThirstStat = document.getElementById("currentThirstStat")
 
 const currentVitalityStat = document.getElementById("currentVitalityStat");
 const currentEnduranceStat = document.getElementById("currentEnduranceStat");
@@ -27,6 +31,9 @@ const currentCharismaStat = document.getElementById("currentCharismaStat");
 const maxHealthStat = document.getElementById("maxHealthStat")
 const maxManaStat = document.getElementById("maxManaStat")
 
+const maxHungerStat = document.getElementById("maxHungerStat")
+const maxThirstStat = document.getElementById("maxThirstStat")
+
 const maxVitalityStat = document.getElementById("maxVitalityStat");
 const maxEnduranceStat = document.getElementById("maxEnduranceStat");
 const maxStrengthStat = document.getElementById("maxStrengthStat");
@@ -36,7 +43,7 @@ const maxWisdomStat = document.getElementById("maxWisdomStat");
 const maxPerceptionStat = document.getElementById("maxPerceptionStat");
 const maxCharismaStat = document.getElementById("maxCharismaStat");
 
-function resetStat() {
+function restoreStat() {
     currentVitalityStat.innerText = maxVitalityStat.innerText
     currentEnduranceStat.innerText = maxEnduranceStat.innerText
     currentStrengthStat.innerText = maxStrengthStat.innerText 
@@ -57,10 +64,11 @@ function resetStat() {
 const text = document.getElementById("text")
 const sceneNumber = document.getElementById("sceneNumber")
 const character = document.getElementById("character")
-
+const ascii = document.getElementById("ascii")
 //clear
 function clear() {
     text.innerText = "Loading . . ."
+    ascii.innerText = ""
     choices.innerHTML = ""
 }
 
@@ -232,7 +240,7 @@ function characterCreation() {
         maxPerceptionStat.innerText = Number(basePerceptionStat.value) + 1
         maxCharismaStat.innerText = Number(baseCharismaStat.value) + 1
 
-        resetStat()
+        restoreStat()
 
         if (roleSelection.innerText = "Priest") {
             priestScene001()
@@ -249,147 +257,121 @@ function characterCreation() {
     }
 }
 
-function priestScene001() {
-    clear();
-    text.innerText = "You wake up to the sound of your alarm tucked in your bed, before slaping your alarm clock off.";
-    sceneNumber.innerText = "001";
-
-    const getUp = document.createElement("button");
-    getUp.innerText = "Get up";
-    getUp.addEventListener("click", () => {
-        priestScene002();
-    });
-    choices.appendChild(getUp);
-}
-
-function priestScene002() {
-    clear();
-    text.innerText = "You look groggily around your old house.";
-    sceneNumber.innerText = "002";
-    
-    const bed = document.createElement("button");
-    bed.innerText = "Bed";
-    bed.addEventListener("click",() => {
-        priestScene004();
-    });
-    choices.appendChild(bed);
-
-    const poseter = document.createElement("button");
-    poseter.innerText = "Poseter";
-    poseter.addEventListener("click", () => {
-        priestScene006();
-    })
-    choices.appendChild(poseter);
-
-    const stove = document.createElement("button");
-    stove.innerText = "Stove"
-    stove.addEventListener("click", () => {
-        priestScene007()
-    });
-    choices.appendChild(stove)
-}
-
-function priestScene004() {
-    clear();
-    text.innerText = "You feel the exhaustion of your labored flesh and its yearning for more rest.";
-    sceneNumber.innerText = "004";
-
-    const nextScene = document.createElement("button");
-    nextScene.innerText = "continue";
-    nextScene.addEventListener("click", () => {
-        priestScene011();
-    });
-    choices.appendChild(nextScene);
-};
-
-function priestScene005() {
-    clear();
-    text.innerText = "You resist the temptation from your bed.";
-    sceneNumber.innerText = "005";
-
-    const nextScene = document.createElement("button");
-    nextScene.innerText = "continue";
-    nextScene.addEventListener("click", () => {
-        priestScene002();
-    });
-    choices.appendChild(nextScene);
-};
-
-function priestScene006() {
-    clear();
-    text.innerText = "Kelp. It is sustenance. It is fuel. It is god.";
-    sceneNumber.innerText = "006";
-
-    const back = document.createElement("button");
-    back.innerText = "Back";
-    back.addEventListener("click", () => {
-        priestScene002();
-    });
-    choices.appendChild(back)
-};
-
-function priestScene007() {
-    clear();
-    text.innerText = "You stare at your empty pot and feel your stomach rumble in hunger.";
-    sceneNumber.innerText = "007";
-
-    if () {
-        
+//Stat Change
+function health() {
+    currentHealthStat.innerText = Number(currentHealthStat.innerText) + change;
+    if (Number(currentHealthStat.innerText) > Number(maxHealthStat.innerText)) {
+        currentHealthStat.innerText = maxHealthStat.innerText;
     }
-};
-
-function priestScene008() {
-    clear();
-    text.innerText = "";
-    sceneNumber.innerText = "";
-
-    
-};
-
-function priestScene009() {
-    clear();
-    text.innerText = "";
-    sceneNumber.innerText = "";
-
-    
-};
-
-function priestScene010() {
-    clear();
-    text.innerText = "";
-    sceneNumber.innerText = "";
-
-    
-};
-
-function priestScene011() {
-    clear()
-    text.innerText = "Do you return to sleep?"
-    sceneNumber.innerText = "011"
-
-    const yes = document.createElement("button")
-    yes.innerText = "Yes"
-    yes.addEventListener("click", () => {
-        priestScene031()
-    })
-    choices.appendChild(yes)
-    
-    const no = document.createElement("button")
-    no.innerText = "No"
-    no.addEventListener("click", () => {
-        priestScene005()
-    })
-    choices.appendChild(no)
+    if (Number(currentHungerStat.innerText) <= 0) {
+        currentHealthStat.innerText = maxHealthStat.innerText
+        gameOver();
+    }
+}
+function mana() {
+    currentManaStat.innerText = Number(currentManaStat.innerText) + change;
+    if (Number(currentManaStat.innerText) > Number(maxManaStat.innerText)) {
+        currentManaStat.innerText = maxManaStat.innerText;
+    }
+    if (Number(currentManaStat.innerText) < 0) {
+        broken();
+    }
+}
+function hunger(change) {
+    currentHungerStat.innerText = Number(currentHungerStat.innerText) + change;
+    if (Number(currentHungerStat.innerText) > Number(maxHungerStat.innerText)) {
+        currentHungerStat.innerText = maxHungerStat.innerText;
+    }
+    if (Number(currentHungerStat.innerText) < 0) {
+        currentHungerStat.innerText = 0;
+    }
+}
+function thirst(change) {
+    currentThirstStat.innerText = Number(currentThirstStat.innerText) + change;
+    if (Number(currentThirstStat.innerText) > Number(maxThirstStat.innerText)) {
+        currentThirstStat.innerText = maxThirstStat.innerText;
+    }
+    if (Number(currentThirstStat.innerText) < 0) {
+        currentThirstStat.innerText = 0;
+    }
+}
+function money(change) {
+    currentMoney,innerText = Number(currentMoney.innerText) + change;
 }
 
-function priestScene031() {
+function gameOver() {
     clear()
-    text.innerText = "You give in to your exhaustion and fall onto the bed."
-    sceneNumber.innerText = "031"
+    text.innerText = ""  
+    ascii.innerText = 
+    `
+  ▄████  ▄▄▄       ███▄ ▄███▓▓█████     ▒█████   ██▒   █▓▓█████  ██▀███  
+ ██▒ ▀█▒▒████▄    ▓██▒▀█▀ ██▒▓█   ▀    ▒██▒  ██▒▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
+▒██░▄▄▄░▒██  ▀█▄  ▓██    ▓██░▒███      ▒██░  ██▒ ▓██  █▒░▒███   ▓██ ░▄█ ▒
+░▓█  ██▓░██▄▄▄▄██ ▒██    ▒██ ▒▓█  ▄    ▒██   ██░  ▒██ █░░▒▓█  ▄ ▒██▀▀█▄  
+░▒▓███▀▒ ▓█   ▓██▒▒██▒   ░██▒░▒████▒   ░ ████▓▒░   ▒▀█░  ░▒████▒░██▓ ▒██▒
+ ░▒   ▒  ▒▒   ▓▒█░░ ▒░   ░  ░░░ ▒░ ░   ░ ▒░▒░▒░    ░ ▐░  ░░ ▒░ ░░ ▒▓ ░▒▓░
+  ░   ░   ▒   ▒▒ ░░  ░      ░ ░ ░  ░     ░ ▒ ▒░    ░ ░░   ░ ░  ░  ░▒ ░ ▒░
+░ ░   ░   ░   ▒   ░      ░      ░      ░ ░ ░ ▒       ░░     ░     ░░   ░ 
+      ░       ░  ░       ░      ░  ░       ░ ░        ░     ░  ░   ░     
+                                                     ░                   
+    `                  
+    character.innerText = "Extra"
+    sceneNumber.innerText = "001"
     
-    const toBeContinued = document.createElement("button")
-    toBeContinued.innerText = "Coming Soon"
-    choices.appendChild(toBeContinued)
+    const restart = document.createElement("button")
+    restart.innerText = "restart"
+    restart.addEventListener("click", () => {
+        restartGame()
+    })
+    choices.appendChild(restart)
+}
+function restartGame() {
+    resetStat()
+    clear()
+    characterCreation()
+}
+function resetStat() {
+    maxVitalityStat.innerText = 0
+    maxEnduranceStat.innerText = 0
+    maxStrengthStat.innerText = 0
+    maxAgilityStat.innerText = 0
+    maxIntelligenceStat.innerText = 0
+    maxWisdomStat.innerText = 0
+    maxPerceptionStat.innerText = 0
+    maxCharismaStat.innerText = 0
+    
+    currentHungerStat.innerText = 50
+    currentThirstStat.innerText = 50
+    money.innerText = 20
+
+    levelStat.innerText = 0
+    currentEXPStat.innerText = 0
+    maxEXPStat.innerText = 0
+
+    inventory.innerText = " "
+
+    restoreStat()
+}
+
+function broken() {
+    clear()
+    text.innerText = ""  
+    ascii.innerText = 
+    `
+  ███████ ██████  ██████   ██████  ██████  
+  ██      ██   ██ ██   ██ ██    ██ ██   ██ 
+  █████   ██████  ██████  ██    ██ ██████  
+  ██      ██   ██ ██   ██ ██    ██ ██   ██ 
+  ███████ ██   ██ ██   ██  ██████  ██   ██ 
+    `                  
+    character.innerText = "Extra"
+    sceneNumber.innerText = "002"
+    const restart = document.createElement("button")
+    restart.innerText = "restart"
+    restart.addEventListener("click", () => {
+        restartGame()
+    })
+    choices.appendChild(restart)
 }
 /*
 function stuff() {

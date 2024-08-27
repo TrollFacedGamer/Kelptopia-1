@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="styles.css">
 
     <title>Kelptopia 1</title>
 </head>
@@ -18,9 +19,9 @@
             Mana: <span id="currentManaStat">0</span>/<span id="maxManaStat">0</span>
             Level: <span id="levelStat">0</span>
             EXP: <span id="currentEXPStat">0</span>/<span id="maxEXPStat">0</span>
-            Hunger: <span id="currentHungerStat">50</span>/<span id="maxHungertat">100</span>
+            Hunger: <span id="currentHungerStat">50</span>/<span id="maxHungerStat">100</span>
             Thirst: <span id="currentThirstStat">50</span>/<span id="maxThirstStat">100</span>
-            Money: $<span id="money">20</Span>
+            Money: $<span id="currentMoney">20</Span>
         </p>
         <p>
             Vitality: <span id="currentVitalityStat">0</span>/<span id="maxVitalityStat">0</span>
@@ -33,13 +34,14 @@
             Charisma: <span id="currentCharismaStat">0</span>/<span id="maxCharismaStat">0</span>
         </p>
         <p>
-            Inventory: [<span id="inventory"></span>]
+            Inventory: [<span id="currentInventory"> </span>]
         </p>
     </section>
     <hr>
     <section id="interface">
         <section id="display">
             <p id="text">Press start to start the game</p>
+            <pre id="ascii"></pre>
         </section>
         <section id="choices">
             <button onclick="characterCreation()">Start</button>  
@@ -51,5 +53,6 @@
         <p>Made by: Benny Wang</p>
     </section>    
     <script src="script.js"></script>
+    <script src="priest.js"></script>
 </body>
 </html>
