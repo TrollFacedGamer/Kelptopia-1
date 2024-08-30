@@ -43,6 +43,7 @@ const maxWisdomStat = document.getElementById("maxWisdomStat");
 const maxPerceptionStat = document.getElementById("maxPerceptionStat");
 const maxCharismaStat = document.getElementById("maxCharismaStat");
 
+//reset restart restore
 function restoreStat() {
     currentVitalityStat.innerText = maxVitalityStat.innerText
     currentEnduranceStat.innerText = maxEnduranceStat.innerText
@@ -60,11 +61,40 @@ function restoreStat() {
     currentHealthStat.innerText = maxHealthStat.innerText
     currentManaStat.innerText = maxManaStat.innerText
 }
+function restartGame() {
+    resetStat()
+    clear()
+    characterCreation()
+}
+function resetStat() {
+    maxVitalityStat.innerText = 0
+    maxEnduranceStat.innerText = 0
+    maxStrengthStat.innerText = 0
+    maxAgilityStat.innerText = 0
+    maxIntelligenceStat.innerText = 0
+    maxWisdomStat.innerText = 0
+    maxPerceptionStat.innerText = 0
+    maxCharismaStat.innerText = 0
+    
+    currentHungerStat.innerText = 50
+    currentThirstStat.innerText = 50
+    money.innerText = 20
+
+    levelStat.innerText = 0
+    currentEXPStat.innerText = 0
+    maxEXPStat.innerText = 0
+
+    currentInventory.innerText = " "
+
+    restoreStat()
+}
+
 //text
 const text = document.getElementById("text")
 const sceneNumber = document.getElementById("sceneNumber")
 const character = document.getElementById("character")
 const ascii = document.getElementById("ascii")
+
 //clear
 function clear() {
     text.innerText = "Loading . . ."
@@ -297,8 +327,15 @@ function thirst(change) {
 }
 function money(change) {
     currentMoney,innerText = Number(currentMoney.innerText) + change;
+    if (currentMoney < 0) {
+        broken();
+    }
+}
+function inventory(change) {
+    currentInventory.innerText = change;
 }
 
+//Extra
 function gameOver() {
     clear()
     text.innerText = ""  
@@ -325,37 +362,9 @@ function gameOver() {
     })
     choices.appendChild(restart)
 }
-function restartGame() {
-    resetStat()
-    clear()
-    characterCreation()
-}
-function resetStat() {
-    maxVitalityStat.innerText = 0
-    maxEnduranceStat.innerText = 0
-    maxStrengthStat.innerText = 0
-    maxAgilityStat.innerText = 0
-    maxIntelligenceStat.innerText = 0
-    maxWisdomStat.innerText = 0
-    maxPerceptionStat.innerText = 0
-    maxCharismaStat.innerText = 0
-    
-    currentHungerStat.innerText = 50
-    currentThirstStat.innerText = 50
-    money.innerText = 20
-
-    levelStat.innerText = 0
-    currentEXPStat.innerText = 0
-    maxEXPStat.innerText = 0
-
-    inventory.innerText = " "
-
-    restoreStat()
-}
-
 function broken() {
     clear()
-    text.innerText = ""  
+    text.innerText = "Please report any issue to developers"  
     ascii.innerText = 
     `
   ███████ ██████  ██████   ██████  ██████  
@@ -366,6 +375,7 @@ function broken() {
     `                  
     character.innerText = "Extra"
     sceneNumber.innerText = "002"
+    
     const restart = document.createElement("button")
     restart.innerText = "restart"
     restart.addEventListener("click", () => {
@@ -373,6 +383,22 @@ function broken() {
     })
     choices.appendChild(restart)
 }
+function comingSoon(scene) {
+    clear();
+    text.innerText = "Coming Soon";
+    character.innerText = "Extra";
+    sceneNumber.innerText = "003";
+
+    const GoBack = document.createElement("button");
+    GoBack.innerText = "Go Back";
+    GoBack.addEventListener("click", () => {
+        character.innerText = 
+        scene()
+    })
+    choices.appendChild(GoBack)
+    console.log(String(scene))
+}
+
 /*
 function stuff() {
     const newButton = document.createElement("button");
