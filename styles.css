@@ -1,3 +1,15 @@
-body {
-    font-family: 'Courier New', Courier, monospace;
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
+#title {
+    font-family: "Nerko One";
+    text-align: center;
+}
+
+#playerStat,#interface, .buildYourCharacter {
+    font-family: "Pixelify Sans"
+}
+#creatorName {
+    font-family: "Dancing Script";
 }

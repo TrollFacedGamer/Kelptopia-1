@@ -47,6 +47,27 @@ function priestScene002() {
         priestScene010();
     })
     choices.appendChild(refeigtor);
+
+    const turtle = document.createElement("button");
+    turtle.innerText = "Turtle";
+    turtle.addEventListener("click", () => {
+        priestScene012();
+    })
+    choices.appendChild(turtle);
+
+    const calendear = document.createElement("button");
+    calendear.innerText = "Calendear";
+    calendear.addEventListener("click", () => {
+        priestScene023();
+    })
+    choices.appendChild(calendear);
+
+    const door = document.createElement("button");
+    door.innerText = "Door"
+    door.addEventListener("click", () => {
+        priestScene026();
+    }) 
+    choices.appendChild(door);
 }
 
 function priestScene003() {
@@ -180,21 +201,33 @@ function priestScene012() {
     text.innerText = "Your turtle appears bored, he stares at you intently."
     sceneNumber.innerText = "012"
 
-    if (turtlehunger == 0) {
-        priestScene018()
-    }
-    else if (turtlehunger == 1) {
-        priestScene017()
-    }
-    else {
-        broken()
-    }
+    const nextScene = document.createElement("button");
+    nextScene.innerText = "continue";
+    nextScene.addEventListener("click", () => {
+        if (turtlehunger == 0) {
+            priestScene018();
+        }
+        else if (turtlehunger == 1) {
+            priestScene017();
+        }
+        else {
+            broken();
+        };
+    });
+    choices.appendChild(nextScene);
 }
 
 function priestScene013() {
     clear()
-    text.innerText = ""
-    sceneNumber.innerText = ""
+    text.innerText = "You remember you had forgotten to feed your turtle for a week.";
+    sceneNumber.innerText = "013";
+
+    const nextScene = document.createElement("button");
+    nextScene.innerText = "continue";
+    nextScene.addEventListener("click", () => {
+        priestScene015()
+    });
+    choices.appendChild(nextScene);
 }
 
 function priestScene014() {
@@ -225,56 +258,136 @@ function priestScene014() {
 
 function priestScene015() {
     clear()
-    text.innerText = ""
-    sceneNumber.innerText = ""
+    text.innerText = "Do you feed the turtle?"
+    sceneNumber.innerText = "015"
+
+    const yes = document.createElement("button")
+    yes.innerText = "Yes"
+    yes.addEventListener("click", () => {
+        if (currentInventory.innerText == "Shrimp") {
+            priestScene016()
+        }
+        else if (currentInventory.innerText != "Shrimp") {
+            priestScene019()
+        }
+        else {
+            broken()
+        }
+    })
+    choices.appendChild(yes)
+    
+    const no = document.createElement("button")
+    no.innerText = "No"
+    no.addEventListener("click", () => {
+        priestScene022()
+    })
+    choices.appendChild(no) 
 }
 
 function priestScene016() {
     clear()
-    text.innerText = ""
-    sceneNumber.innerText = ""
+    text.innerText = "You throw the [Shrimp] into the tank. Your Turtle hungrily consumes bites into the [Shrimp]."
+    sceneNumber.innerText = "016"
+    
+    turtlehunger = 1
+    
+    const back = document.createElement("button");
+    back.innerText = "Back";
+    back.addEventListener("click", () => {
+        priestScene002();
+    });
+    choices.appendChild(back)
 }
 
 function priestScene017() {
     clear()
-    text.innerText = ""
-    sceneNumber.innerText = ""
+    text.innerText = "You notice your turtle seems sleepy and decide to leave him alone."
+    sceneNumber.innerText = "017"
+
+    const back = document.createElement("button");
+    back.innerText = "Back";
+    back.addEventListener("click", () => {
+        priestScene002();
+    });
+    choices.appendChild(back)
 }
 
 function priestScene018() {
     clear()
-    text.innerText = ""
-    sceneNumber.innerText = ""
+    text.innerText = "Looking closer you notice he appears a bit famished."
+    sceneNumber.innerText = "018"
+
+    const nextScene = document.createElement("button");
+    nextScene.innerText = "continue";
+    nextScene.addEventListener("click", () => {
+        priestScene013();
+    });
+    choices.appendChild(nextScene);
 }
 
 function priestScene019() {
     clear()
-    text.innerText = ""
-    sceneNumber.innerText = ""
+    text.innerText = "You crack open the jar of turtle food but find it empty."
+    sceneNumber.innerText = "019"
+
+    const nextScene = document.createElement("button");
+    nextScene.innerText = "continue";
+    nextScene.addEventListener("click", () => {
+        priestScene020();
+    });
+    choices.appendChild(nextScene);
 }
 
 function priestScene020() {
     clear()
-    text.innerText = ""
-    sceneNumber.innerText = ""
+    text.innerText = "You suddenly remember that it wasn't that you forgot to feed the turtle, it was that you kept forgetting to buy turtle food."
+    sceneNumber.innerText = "020"
+
+    const nextScene = document.createElement("button");
+    nextScene.innerText = "continue";
+    nextScene.addEventListener("click", () => {
+        priestScene021();
+    });
+    choices.appendChild(nextScene);
 }
 
 function priestScene021() {
     clear()
-    text.innerText = ""
-    sceneNumber.innerText = ""
+    text.innerText = "You recall you managed to catch a [Shrimp] yesterday and placed it in the refrigerator."
+    sceneNumber.innerText = "021"
+
+    const back = document.createElement("button");
+    back.innerText = "Back";
+    back.addEventListener("click", () => {
+        priestScene002();
+    });
+    choices.appendChild(back)
 }
 
 function priestScene022() {
     clear()
-    text.innerText = ""
-    sceneNumber.innerText = ""
+    text.innerText = "You decide to leave the turtle as is."
+    sceneNumber.innerText = "022"
+
+    const back = document.createElement("button");
+    back.innerText = "Back";
+    back.addEventListener("click", () => {
+        priestScene002();
+    });
+    choices.appendChild(back)
 }
 
 function priestScene023() {
     clear()
-    text.innerText = ""
-    sceneNumber.innerText = ""
+    text.innerText = "You have work today."
+    sceneNumber.innerText = "023"
+
+    const back = document.createElement("button");
+    back.innerText = "Back";
+    back.addEventListener("click", () => {
+        priestScene002();
+    });
+    choices.appendChild(back);
 }
 
 function priestScene024() {
@@ -331,8 +444,15 @@ function priestScene025() {
 
 function priestScene026() {
     clear()
-    text.innerText = ""
-    sceneNumber.innerText = ""
+    text.innerText = "You walk out of the house."
+    sceneNumber.innerText = "026"
+
+    const nextScene = document.createElement("button");
+    nextScene.innerText = "continue";
+    nextScene.addEventListener("click", () => {
+        priestScene032()
+    });
+    choices.appendChild(nextScene);
 }
 
 function priestScene027() {
@@ -367,12 +487,261 @@ function priestScene031() {
     const nextScene = document.createElement("button");
     nextScene.innerText = "continue";
     nextScene.addEventListener("click", () => {
-        comingSoon(priestScene002);
+        comingSoon(priestScene002, "priest");
     });
     choices.appendChild(nextScene);
 }
 
 function priestScene032() {
+    clear();
+    text.innerText = "You take a deep breath of the polluted waters as you look around the streets.";
+    sceneNumber.innerText = "032";
+
+    const nextScene = document.createElement("button");
+    nextScene.innerText = "continue";
+    nextScene.addEventListener("click", () => {
+        priestScene033()
+    });
+    choices.appendChild(nextScene);
+};
+
+function priestScene033() {
+    clear();
+    text.innerText = "You cough.";
+    sceneNumber.innerText = "033";
+
+    currentHealthStat.innerText -= 0.5
+    
+    const nextScene = document.createElement("button");
+    nextScene.innerText = "continue";
+    nextScene.addEventListener("click", () => {
+        priestScene034()
+    });
+    choices.appendChild(nextScene);
+};
+
+function priestScene034() {
+    clear();
+    text.innerText = "You should probaly go to the doctor.";
+    sceneNumber.innerText = "034";
+
+    const nextScene = document.createElement("button");
+    nextScene.innerText = "continue";
+    nextScene.addEventListener("click", () => {
+        priestScene035()
+    });
+    choices.appendChild(nextScene);
+};
+
+function priestScene035() {
+    clear();
+    text.innerText = "Should be just around the corner.";
+    sceneNumber.innerText = "035";
+
+    const goBack = document.createElement("button")
+    goBack.innerText = "Go Back"
+    goBack.addEventListener("click", () => {
+        priestScene002()
+    });
+    choices.appendChild(goBack);
+
+    const bakary = document.createElement("button")
+    bakary.innerText = "Bakary"
+    bakary.addEventListener("click", () => {
+        priestScene036()
+    });
+    choices.appendChild(bakary);
+
+    const nextStreet = document.createElement("button")
+    nextStreet.innerText = "Next Street"
+    nextStreet.addEventListener("click", () => {
+        priestScene052()
+    });
+    choices.appendChild(nextStreet);
+
+    const cliinc = document.createElement("button")
+    cliinc.innerText = "Cliinc"
+    cliinc.addEventListener("click", () => {
+        priestScene042()
+    });
+    choices.appendChild(cliinc);
+};
+
+function priestScene036() {
+    clear();
+    text.innerText = "You walk into the bakery.";
+    sceneNumber.innerText = "036";
+
+    const nextScene = document.createElement("button");
+    nextScene.innerText = "continue";
+    nextScene.addEventListener("click", () => {
+        priestScene037()
+    });
+    choices.appendChild(nextScene);
+};
+
+function priestScene037() {
+    clear();
+    text.innerText = "The baker greets you.";
+    sceneNumber.innerText = "037";
+
+    const nextScene = document.createElement("button");
+    nextScene.innerText = "continue";
+    nextScene.addEventListener("click", () => {
+        priestScene038()
+    });
+    choices.appendChild(nextScene);
+};
+
+function priestScene038() {
+    clear();
+    text.innerText = "Baker: What would you like.";
+    sceneNumber.innerText = "038";
+
+    const kelpBread = document.createElement("button")
+    kelpBread.innerText = "Kelp Bread"
+    kelpBread.addEventListener("click", () => {
+        priestScene027()
+    })
+    choices.appendChild(kelpBread)
+
+    const kelpTart = document.createElement("button")
+    kelpTart.innerText = "Kelp Tart"
+    kelpTart.addEventListener("click", () => {
+        priestScene039()
+    })
+    choices.appendChild(kelpTart)
+
+    const breadStick = document.createElement("button")
+    breadStick.innerText = "Bread Stick"
+    breadStick.addEventListener("click", () => {
+        priestScene040()
+    })
+    choices.appendChild(breadStick)
+
+    const leave = document.createElement("button")
+    leave.innerText = "Leave"
+    leave.addEventListener("click", () => {
+        priestScene041()
+    })
+    choices.appendChild(leave)
+};
+
+function priestScene039() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene040() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene041() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene042() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene043() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene044() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene045() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene046() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene047() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene048() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene049() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene050() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene051() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene052() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene053() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene054() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene055() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene056() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene057() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+function priestScene058() {
     clear();
     text.innerText = "";
     sceneNumber.innerText = "";

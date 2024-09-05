@@ -1,0 +1,37 @@
+function priestScene000() {
+    clear();
+    text.innerText = "";
+    sceneNumber.innerText = "";
+};
+
+//Back
+const back = document.createElement("button");
+back.innerText = "Back";
+back.addEventListener("click", () => {
+    priestScene002();
+});
+choices.appendChild(back);
+
+//Continue
+const nextScene = document.createElement("button");
+nextScene.innerText = "continue";
+nextScene.addEventListener("click", () => {
+
+});
+choices.appendChild(nextScene);
+
+//Yes/No
+const yes = document.createElement("button");
+yes.innerText = "Yes";
+yes.addEventListener("click", () => {
+
+})
+choices.appendChild(yes);
+
+const no = document.createElement("button");
+no.innerText = "No";
+no.addEventListener("click", () => {
+
+})
+choices.appendChild(no);
+
