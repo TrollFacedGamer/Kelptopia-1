@@ -419,3 +419,217 @@ function stuff() {
       });
 }
 */
+// player info
+const player = {
+    stats: {
+        base: {
+            // vitality
+            vitality: {
+                current: 0,
+                max: 10,
+                restore: function() {
+                    player.stats.base.vitality.current = player.stats.base.vitality.max
+                }
+            },
+            // endurance
+            endurance: {
+                current: 0,
+                max: 10,
+                restore: function() {
+                    player.stats.base.endurance.current = player.stats.base.endurance.max
+                }
+            },
+            // strength
+            strength: {
+                current: 0,
+                max: 10,
+                restore: function() {
+                    player.stats.base.strength.current = player.stats.base.strength.max
+                }
+            },
+            // agility
+            agility: {
+                current: 0,
+                max: 10,
+                restore: function() {
+                    player.stats.base.agility.current = player.stats.base.agility.max
+                }
+            },
+            // intelligence
+            intelligence: {
+                current: 0,
+                max: 10,
+                restore: function() {
+                    player.stats.base.intelligence.current = player.stats.base.intelligence.max
+                }
+            },
+            // wisdom
+            wisdom: {
+                current: 0,
+                max: 10,
+                restore: function() {
+                    player.stats.base.wisdom.current = player.stats.base.wisdom.max
+                }
+            },
+            // perception
+            perception: {
+                current: 0,
+                max: 10,
+                restore: function() {
+                    player.stats.base.perception.current = player.stats.base.perception.max
+                }
+            },
+            // charisma
+            charisma: {
+                current: 0,
+                max: 10,
+                restore: function() {
+                    player.stats.base.charisma.current = player.stats.base.charisma.max
+                }
+            }
+        },
+        combat: {
+            hp: {
+                current: 5,
+                max: 10,
+                restore: function() {
+                    player.stats.combat.hp.current = player.stats.combat.hp.max
+                },
+                // recalculate hp max
+                recalculate: function() {
+                    player.stats.combat.hp.max = player.stats.combat.vitality.current * 10
+                },
+                // change
+                change: function(amount) {
+                    player.stats.combat.hp.current += amount;
+                    if (player.stats.combat.hp.current > player.stats.combat.hp.max) {
+                        player.stats.combat.hp.current = player.stats.combat.hp.max;
+                    }
+                    else if (player.stats.combat.hp.current <= 0) {
+                        gameOver();
+                    };
+                },
+            },
+            mana: {
+                current: 0,
+                max: 10,
+                restore: function() {
+                    player.stats.combat.mana.current = player.stats.combat.mana.max
+                },
+                recalculate: function() {
+                    player.stats.combat.mana.max = player.stats.combat.wisdom.current * 10
+                },
+                change: function(amount) {
+                    //hi
+                    player.stats.combat.mana.current += amount;
+                    if (player.stats.combat.mana.current > player.stats.combat.mana.max) {
+                        player.stats.combat.mana.current = player.stats.combat.mana.max;
+                    }
+                    if (player.stats.combat.mana.current <= 0) {
+                        broken();
+                    }
+                }
+            },
+        },
+        sustenance: {
+            hunger: {
+                current: 0,
+                max: 10,
+                restore: function() {
+                    player.stats.sustenance.hunger.current = player.stats.sustenance.hunger.max
+                }
+            },
+            thirst: {
+                current: 0,
+                max: 10,
+                restore: function() {
+                    player.stats.sustenance.thirst.current = player.stats.sustenance.thirst.max
+                },
+            },
+        },
+        miscellaneous: {
+            exp: {
+                current: 0,
+                max: 5,
+            },
+            money: {
+                current: 0,
+                max: 1000,
+            },
+        },
+    },
+    inventory: {
+        //inventory
+        base: {
+            slot1: " ",
+        },
+        small_backpack: {
+            slot2: undefined,
+            slot3: undefined,
+
+            have: false,
+        },
+        medium_backpack: {
+            slot4: undefined,
+            slot5: undefined,
+
+            have: false
+        },
+        large_backpack: {
+            slot6: undefined,
+            slot7: undefined,
+
+            have: false
+        },
+        add: function(item) {
+            array = [1, 2, 3, 4, 5, 6, 7]
+            for (let index = 0; index < array.length; index++) {
+                const element = array[index];
+                if (element == 1) {
+                    if (player.inventory.base.slot1 == " ") {
+                        player.inventory.base.slot1 = item
+                        break
+                    }
+                }
+                //check slot 2 for space
+                else if (element == 2) {
+                    if (player.inventory.small_backpack.slot2 == " ") {
+                        player.inventory.small_backpack.slot2 = item
+                        break
+                    }
+                }
+                else if (element == 3) {
+                    if (player.inventory.base.slot1 == " ") {
+                        player.inventory.base.slot1 = item
+                        break
+                    }
+                }
+                else if (element == 4) {
+                    if (player.inventory.base.slot1 == " ") {
+                        player.inventory.base.slot1 = item
+                        break
+                    }
+                }
+                else if (element == 5) {
+                    if (player.inventory.base.slot1 == " ") {
+                        player.inventory.base.slot1 = item
+                        break
+                    }
+                }
+                else if (element == 6) {
+                    if (player.inventory.base.slot1 == " ") {
+                        player.inventory.base.slot1 = item
+                        break
+                    }
+                }
+                else if (element == 7) {
+                    if (player.inventory.base.slot1 == " ") {
+                        player.inventory.base.slot1 = item
+                        break
+                    }
+                }
+            }
+        }
+    },
+};
+eval()
