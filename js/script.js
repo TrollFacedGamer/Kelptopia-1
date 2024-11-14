@@ -5,20 +5,8 @@ const interface = document.getElementById("interface");
     const display = document.getElementById("display");
     const choices = document.getElementById("choices");
 const credits = document.getElementById("credits")
-//ElementStat
-const currentMoney = document.getElementById("currentMoney")
-const currentInventory = document.getElementById("currentInventory")
 
-const levelStat = document.getElementById("levelStat")
-const currentEXPStat = document.getElementById("currentEXPStat")
-const maxEXPStat = document.getElementById("maxEXPStat")
-
-const currentHealthStat = document.getElementById("currentHealthStat")
-const currentManaStat = document.getElementById("currentManaStat")
-
-const currentHungerStat = document.getElementById("currentHungerStat")
-const currentThirstStat = document.getElementById("currentThirstStat")
-
+//base stats
 const currentVitalityStat = document.getElementById("currentVitalityStat");
 const currentEnduranceStat = document.getElementById("currentEnduranceStat");
 const currentStrengthStat = document.getElementById("currentStrengthStat");
@@ -28,12 +16,6 @@ const currentWisdomStat = document.getElementById("currentWisdomStat");
 const currentPerceptionStat = document.getElementById("currentPerceptionStat");
 const currentCharismaStat = document.getElementById("currentCharismaStat");
 
-const maxHealthStat = document.getElementById("maxHealthStat")
-const maxManaStat = document.getElementById("maxManaStat")
-
-const maxHungerStat = document.getElementById("maxHungerStat")
-const maxThirstStat = document.getElementById("maxThirstStat")
-
 const maxVitalityStat = document.getElementById("maxVitalityStat");
 const maxEnduranceStat = document.getElementById("maxEnduranceStat");
 const maxStrengthStat = document.getElementById("maxStrengthStat");
@@ -42,6 +24,42 @@ const maxIntelligenceStat = document.getElementById("maxIntelligenceStat");
 const maxWisdomStat = document.getElementById("maxWisdomStat");
 const maxPerceptionStat = document.getElementById("maxPerceptionStat");
 const maxCharismaStat = document.getElementById("maxCharismaStat");
+
+//combat
+const maxHealthStat = document.getElementById("maxHealthStat")
+const maxManaStat = document.getElementById("maxManaStat")
+
+const currentHealthStat = document.getElementById("currentHealthStat")
+const currentManaStat = document.getElementById("currentManaStat")
+
+//sustenance
+const maxHungerStat = document.getElementById("maxHungerStat")
+const maxThirstStat = document.getElementById("maxThirstStat")
+
+const currentHungerStat = document.getElementById("currentHungerStat")
+const currentThirstStat = document.getElementById("currentThirstStat")
+
+//miscellaneous
+const currentMoney = document.getElementById("currentMoney")
+
+const levelStat = document.getElementById("levelStat")
+
+const currentEXPStat = document.getElementById("currentEXPStat")
+const maxEXPStat = document.getElementById("maxEXPStat")
+
+
+//inventory
+const storageUnit = document.getElementById("storageUnit")
+
+const inventorySlot1 = document.getElementById("inventorySlot1")
+const inventorySlot2 = document.getElementById("inventorySlot2")
+const inventorySlot3 = document.getElementById("inventorySlot3")
+const inventorySlot4 = document.getElementById("inventorySlot4")
+const inventorySlot5 = document.getElementById("inventorySlot5")
+const inventorySlot6 = document.getElementById("inventorySlot6")
+const inventorySlot7 = document.getElementById("inventorySlot7")
+const inventorySlot8 = document.getElementById("inventorySlot8")
+
 
 //reset restart restore
 function restoreStat() {
@@ -233,17 +251,20 @@ function characterCreation() {
     roleLabel.setAttribute("for", "roleSelection");
     choices.appendChild(roleLabel)
 
+    //role selection
     const roleSelection = document.createElement("select");
     roleSelection.id = "roleSelection"
     roleSelection.className = "buildYourCharacter"
     choices.appendChild(roleSelection)
 
+        //priest
     const roleChoicePriest = document.createElement("option")
     roleChoicePriest.innerText = "Priest"
     roleSelection.appendChild(roleChoicePriest)
-
-    choices.appendChild(document.createElement("br"))
     
+    choices.appendChild(document.createElement("br"))
+
+    //reset button
     const resetButton = document.createElement("button")
     resetButton.id = "resetButton"
     resetButton.innerText = "Reset"
@@ -252,49 +273,48 @@ function characterCreation() {
         characterCreation()
     })
     choices.appendChild(resetButton)
+    //done button
     const doneButton = document.createElement("button")
     doneButton.id = "doneButton"
     doneButton.innerText = "Done"
     doneButton.className = "buildYourCharacter"
     doneButton.addEventListener("click", () => {
-        baseStatUpdate()
+        initialStatUpdate()
     })
     choices.appendChild(doneButton)
+}
 
-    function baseStatUpdate() {
-        if (Number(baseVitalityStat.value) + 
+function initialStatUpdate() {
+    if (Number(baseVitalityStat.value) + 
         Number(baseEnduranceStat.value) + 
         Number(baseStrengthStat.value) + 
         Number(baseAgilityStat.value) + 
         Number(baseIntelligenceStat.value) + 
         Number(baseWisdomStat.value) +
         Number(basePerceptionStat.value) +
-        Number(baseCharismaStat.value) ==
-        5
-    ) {
-        maxVitalityStat.innerText = Number(baseVitalityStat.value) + 1
-        maxEnduranceStat.innerText = Number(baseEnduranceStat.value) + 1
-        maxStrengthStat.innerText = Number(baseStrengthStat.value) + 1
-        maxAgilityStat.innerText = Number(baseAgilityStat.value) + 1
-        maxIntelligenceStat.innerText = Number(baseIntelligenceStat.value) + 1
-        maxWisdomStat.innerText = Number(baseWisdomStat.value) + 1
-        maxPerceptionStat.innerText = Number(basePerceptionStat.value) + 1
-        maxCharismaStat.innerText = Number(baseCharismaStat.value) + 1
+        Number(baseCharismaStat.value) == 5) {
+        player.stats.base.vitality.max = Number(baseVitalityStat.value) + 1
+        player.stats.base.endurance.max = Number(baseEnduranceStat.value) + 1
+        player.stats.base.strength.max = Number(baseStrengthStat.value) + 1
+        player.stats.base.agility.max = Number(baseAgilityStat.value) + 1
+        player.stats.base.intelligence.max = Number(baseIntelligenceStat.value) + 1
+        player.stats.base.wisdom.max = Number(baseWisdomStat.value) + 1
+        player.stats.base.perception.max = Number(basePerceptionStat.value) + 1
+        player.stats.base.charisma.max = Number(baseCharismaStat.value) + 1
 
-        restoreStat()
+        player.stats.base.restore()
 
-        if (roleSelection.innerText = "Priest") {
-            priestScene001()
-            character.innerText = "priest"
-        }
-        else {
-            characterCreation()
-            alert("role error")
-        }
+    if (roleSelection.innerText = "Priest") {
+        priestScene001()
+        character.innerText = "priest"
+    }
+    else {
+        characterCreation()
+        alert("role error")
+    }
     }
     else {
         alert("invaild")
-    }
     }
 }
 
@@ -408,14 +428,3 @@ function comingSoon(scene, sceneCharacter) {
     })
     choices.appendChild(GoBack)
 }
-
-/*
-function stuff() {
-    const newButton = document.createElement("button");
-    newButton.textContent = "Click me!";
-    interface.appendChild(newButton);
-    newButton.addEventListener("click", () => {
-        alert("New button clicked!");
-      });
-}
-*/

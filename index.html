@@ -13,7 +13,7 @@
         <h1>Kelptopia 1</h1>
     </section>
     <hr>
-    <section id="playerStat">
+    <section id="playerStat" class="UI">
         <p>
             Health: <span id="currentHealthStat">0</span>/<span id="maxHealthStat">0</span>
             Mana: <span id="currentManaStat">0</span>/<span id="maxManaStat">0</span>
@@ -33,9 +33,22 @@
             Perception: <span id="currentPerceptionStat">0</span>/<span id="maxPerceptionStat">0</span>
             Charisma: <span id="currentCharismaStat">0</span>/<span id="maxCharismaStat">0</span>
         </p>
-        <p>
-            Inventory: [<span id="currentInventory"> </span>]
-        </p>
+    <section id="inventory" class="UI">
+        Inventory: 
+        [<span id="storageUnit"></span>]
+        [<span id="inventorySlot1"></span>]
+        [<span id="inventorySlot2"></span>]
+        [<span id="inventorySlot3"></span>]
+        [<span id="inventorySlot4"></span>]
+        [<span id="inventorySlot5"></span>]
+        [<span id="inventorySlot6"></span>]
+        [<span id="inventorySlot7"></span>]
+        [<span id="inventorySlot8"></span>]
+    </section>
+    </section>
+
+    <section id="statusEffect" class="UI">
+        Status Effect(s): [coming soon]
     </section>
     <hr>
     <section id="interface">
@@ -52,9 +65,9 @@
         <p>Scene Number: <span id="character"></span><span id="sceneNumber"></span></p>
         <p>Made by: <span id="creatorName">Benny Wang</span></p>
     </section>    
-    <script src="objects.js"></script>
-    <script src="player.js"></script>
-    <script src="script.js"></script>
-    <script src="priest.js"></script>
+    <script src="/js/objects.js"></script>
+    <script src="/js/player.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/priest.js"></script>
 </body>
 </html>

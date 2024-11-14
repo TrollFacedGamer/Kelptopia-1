@@ -7,7 +7,7 @@
     text-align: center;
 }
 
-#playerStat,#interface, .buildYourCharacter {
+.UI,#interface {
     font-family: "Pixelify Sans"
 }
 #creatorName {

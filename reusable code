@@ -35,3 +35,17 @@ no.addEventListener("click", () => {
 })
 choices.appendChild(no);
 
+
+
+
+/*
+function stuff() {
+    const newButton = document.createElement("button");
+    newButton.textContent = "Click me!";
+    interface.appendChild(newButton);
+    newButton.addEventListener("click", () => {
+        alert("New button clicked!");
+      });
+}
+*/
+
