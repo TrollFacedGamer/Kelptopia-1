@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
@@ -13,3 +14,8 @@
 #creatorName {
     font-family: "Dancing Script";
 }
+=======
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+>>>>>>> parent of 2b50d6a (0.001.004 style)

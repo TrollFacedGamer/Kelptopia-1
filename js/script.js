@@ -123,7 +123,7 @@ function clear() {
 //Start
 function characterCreation() {
     clear()
-    text.innerText = "Build Your Character"
+    text.innerText = "Build Your character"
     sceneNumber.innerText = "000"
     
     const vitalityLabel = document.createElement("label")
@@ -136,7 +136,6 @@ function characterCreation() {
     baseVitalityStat.max = 5
     baseVitalityStat.value = 0
     baseVitalityStat.id = "baseVitalityStat"
-    baseVitalityStat.className = "buildYourCharacter"
     choices.appendChild(baseVitalityStat)
     
     choices.appendChild(document.createElement("br"))
@@ -151,7 +150,6 @@ function characterCreation() {
     baseEnduranceStat.max = 5
     baseEnduranceStat.value = 0
     baseEnduranceStat.id = "baseEnduranceStat"
-    baseEnduranceStat.className = "buildYourCharacter"
     choices.appendChild(baseEnduranceStat)
 
     choices.appendChild(document.createElement("br"))
@@ -166,7 +164,6 @@ function characterCreation() {
     baseStrengthStat.max = 5
     baseStrengthStat.value = 0
     baseStrengthStat.id = "baseStrengthStat"
-    baseStrengthStat.className = "buildYourCharacter"
     choices.appendChild(baseStrengthStat)
 
     choices.appendChild(document.createElement("br"))
@@ -181,7 +178,6 @@ function characterCreation() {
     baseAgilityStat.max = 5
     baseAgilityStat.value = 0
     baseAgilityStat.id = "baseAgilityStat"
-    baseAgilityStat.className = "buildYourCharacter"
     choices.appendChild(baseAgilityStat)
 
     choices.appendChild(document.createElement("br"))
@@ -196,7 +192,6 @@ function characterCreation() {
     baseIntelligenceStat.max = 5
     baseIntelligenceStat.value = 0
     baseIntelligenceStat.id = "baseIntelligenceStat"
-    baseIntelligenceStat.className = "buildYourCharacter"
     choices.appendChild(baseIntelligenceStat)
 
     choices.appendChild(document.createElement("br"))
@@ -211,7 +206,6 @@ function characterCreation() {
     baseWisdomStat.max = 5
     baseWisdomStat.value = 0
     baseWisdomStat.id = "baseWisdomStat"
-    baseWisdomStat.className = "buildYourCharacter"
     choices.appendChild(baseWisdomStat)
 
     choices.appendChild(document.createElement("br"))
@@ -226,7 +220,6 @@ function characterCreation() {
     basePerceptionStat.max = 5
     basePerceptionStat.value = 0
     basePerceptionStat.id = "basePerceptionStat"
-    basePerceptionStat.className = "buildYourCharacter"
     choices.appendChild(basePerceptionStat)
 
     choices.appendChild(document.createElement("br"))
@@ -241,7 +234,6 @@ function characterCreation() {
     baseCharismaStat.max = 5
     baseCharismaStat.value = 0
     baseCharismaStat.id = "baseCharismaStat"
-    baseCharismaStat.className = "buildYourCharacter"
     choices.appendChild(baseCharismaStat)
 
     choices.appendChild(document.createElement("br"))
@@ -254,7 +246,6 @@ function characterCreation() {
     //role selection
     const roleSelection = document.createElement("select");
     roleSelection.id = "roleSelection"
-    roleSelection.className = "buildYourCharacter"
     choices.appendChild(roleSelection)
 
         //priest
@@ -268,7 +259,6 @@ function characterCreation() {
     const resetButton = document.createElement("button")
     resetButton.id = "resetButton"
     resetButton.innerText = "Reset"
-    resetButton.className = "buildYourCharacter"
     resetButton.addEventListener("click", () => {
         characterCreation()
     })
@@ -277,7 +267,6 @@ function characterCreation() {
     const doneButton = document.createElement("button")
     doneButton.id = "doneButton"
     doneButton.innerText = "Done"
-    doneButton.className = "buildYourCharacter"
     doneButton.addEventListener("click", () => {
         initialStatUpdate()
     })
@@ -367,7 +356,7 @@ function broken() {
     })
     choices.appendChild(restart)
 }
-function comingSoon(scene, sceneCharacter) {
+function comingSoon(scene) {
     clear();
     text.innerText = "Coming Soon";
     character.innerText = "Extra";
@@ -376,10 +365,11 @@ function comingSoon(scene, sceneCharacter) {
     const GoBack = document.createElement("button");
     GoBack.innerText = "Go Back";
     GoBack.addEventListener("click", () => {
-        character.innerText = sceneCharacter;
-        scene();
+        character.innerText = 
+        scene()
     })
     choices.appendChild(GoBack)
+    console.log(String(scene))
 }
 
 
