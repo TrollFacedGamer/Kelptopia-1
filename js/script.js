@@ -305,8 +305,9 @@ function initialStatUpdate() {
         player.stats.base.restore()
 
     if (roleSelection.innerText = "Priest") {
-        priestScene001()
-        character.innerText = "priest"
+        player.scene.role.change("priest")
+        storyline.priest.scene._001()
+        updateUI()
     }
     else {
         characterCreation()
@@ -316,54 +317,6 @@ function initialStatUpdate() {
     else {
         alert("invaild")
     }
-}
-
-//Stat Change
-function health() {
-    currentHealthStat.innerText = Number(currentHealthStat.innerText) + change;
-    if (Number(currentHealthStat.innerText) > Number(maxHealthStat.innerText)) {
-        currentHealthStat.innerText = maxHealthStat.innerText;
-    }
-    if (Number(currentHungerStat.innerText) <= 0) {
-        currentHealthStat.innerText = maxHealthStat.innerText
-        gameOver();
-    }
-}
-function mana() {
-    currentManaStat.innerText = Number(currentManaStat.innerText) + change;
-    if (Number(currentManaStat.innerText) > Number(maxManaStat.innerText)) {
-        currentManaStat.innerText = maxManaStat.innerText;
-    }
-    if (Number(currentManaStat.innerText) < 0) {
-        broken();
-    }
-}
-function hunger(change) {
-    currentHungerStat.innerText = Number(currentHungerStat.innerText) + change;
-    if (Number(currentHungerStat.innerText) > Number(maxHungerStat.innerText)) {
-        currentHungerStat.innerText = maxHungerStat.innerText;
-    }
-    if (Number(currentHungerStat.innerText) < 0) {
-        currentHungerStat.innerText = 0;
-    }
-}
-function thirst(change) {
-    currentThirstStat.innerText = Number(currentThirstStat.innerText) + change;
-    if (Number(currentThirstStat.innerText) > Number(maxThirstStat.innerText)) {
-        currentThirstStat.innerText = maxThirstStat.innerText;
-    }
-    if (Number(currentThirstStat.innerText) < 0) {
-        currentThirstStat.innerText = 0;
-    }
-}
-function money(change) {
-    currentMoney,innerText = Number(currentMoney.innerText) + change;
-    if (currentMoney < 0) {
-        broken();
-    }
-}
-function inventory(change) {
-    currentInventory.innerText = change;
 }
 
 //Extra
@@ -427,4 +380,134 @@ function comingSoon(scene, sceneCharacter) {
         scene();
     })
     choices.appendChild(GoBack)
+}
+
+
+
+
+
+/**
+ * update UI
+ */
+function updateUI() {
+    //base
+    currentVitalityStat.innerText = player.stats.base.vitality.current
+    currentEnduranceStat.innerText = player.stats.base.endurance.current
+    currentStrengthStat.innerText = player.stats.base.strength.current
+    currentAgilityStat.innerText = player.stats.base.agility.current
+    currentIntelligenceStat.innerText = player.stats.base.intelligence.current
+    currentWisdomStat.innerText = player.stats.base.wisdom.current
+    currentPerceptionStat.innerText = player.stats.base.perception.current
+    currentCharismaStat.innerText = player.stats.base.charisma.current
+
+    maxVitalityStat.innerText = player.stats.base.vitality.max
+    maxEnduranceStat.innerText = player.stats.base.endurance.max
+    maxStrengthStat.innerText = player.stats.base.strength.max
+    maxAgilityStat.innerText = player.stats.base.agility.max
+    maxIntelligenceStat.innerText = player.stats.base.intelligence.max
+    maxWisdomStat.innerText = player.stats.base.wisdom.max
+    maxPerceptionStat.innerText = player.stats.base.perception.max
+    maxCharismaStat.innerText = player.stats.base.charisma.max
+
+    //combat
+    currentHealthStat.innerText = player.stats.combat.hp.current
+    currentManaStat.innerText = player.stats.combat.mana.current
+
+    maxHealthStat.innerText = player.stats.combat.hp.max
+    maxManaStat.innerText = player.stats.combat.mana.max
+
+    //sustenance
+    currentHungerStat.innerText = player.stats.sustenance.hunger.current
+    currentThirstStat.innerText = player.stats.sustenance.hunger.current
+
+    maxHungerStat.innerText = player.stats.sustenance.hunger.max
+    maxThirstStat.innerText = player.stats.sustenance.thirst.max
+
+    //inventory
+    storageUnit.innerText = player.inventory.slots[0].name
+
+        //1
+    if (player.inventory.slots[1] == null) {
+        inventorySlot1.innerText = ""
+    }
+    else if (player.inventory.slots[1] == " ") {
+        inventorySlot1.innerText = " "
+    }
+    else {
+        inventorySlot1.innerText = player.inventory.slots[1].name
+    }
+        //2
+    if (player.inventory.slots[2] == null) {
+        inventorySlot2.innerText = ""
+    }
+    else if (player.inventory.slots[2] == " ") {
+        inventorySlot2.innerText = " "
+    }
+    else {
+        inventorySlot2.innerText = player.inventory.slots[2].name
+    }
+        //3
+    if (player.inventory.slots[3] == null) {
+        inventorySlot3.innerText = ""
+    }
+    else if (player.inventory.slots[3] == " ") {
+        inventorySlot3.innerText = " "
+    }
+    else {
+        inventorySlot3.innerText = player.inventory.slots[3].name
+    }
+        //4
+    if (player.inventory.slots[4] == null) {
+        inventorySlot4.innerText = ""
+    }
+    else if (player.inventory.slots[4] == " ") {
+        inventorySlot4.innerText = " "
+    }
+    else {
+        inventorySlot4.innerText = player.inventory.slots[4].name
+    }
+        //5
+    if (player.inventory.slots[5] == null) {
+        inventorySlot5.innerText = ""
+    }
+    else if (player.inventory.slots[5] == " ") {
+        inventorySlot5.innerText = " "
+    }
+    else {
+        inventorySlot5.innerText = player.inventory.slots[5].name
+    }
+        //6
+    if (player.inventory.slots[6] == null) {
+        inventorySlot6.innerText = ""
+    }
+    else if (player.inventory.slots[6] == " ") {
+        inventorySlot6.innerText = " "
+    }
+    else {
+        inventorySlot6.innerText = player.inventory.slots[6].name
+    }
+        //7
+    if (player.inventory.slots[7] == null) {
+        inventorySlot7.innerText = ""
+    }
+    else if (player.inventory.slots[7] == " ") {
+        inventorySlot7.innerText = " "
+    }
+    else {
+        inventorySlot7.innerText = player.inventory.slots[7].name
+    }
+        //8
+    if (player.inventory.slots[8] == null) {
+        inventorySlot8.innerText = ""
+    }
+    else if (player.inventory.slots[8] == " ") {
+        inventorySlot8.innerText = " "
+    }
+    else {
+        inventorySlot8.innerText = player.inventory.slots[8].name
+    }
+
+    //scene
+    character.innerText = player.scene.role.current
+    sceneNumber.innerText = player.scene.number.current
 }

@@ -1,0 +1,63 @@
+You wake up to the sound of your alarm tucked in your bed.
+You slap your alarm clock off and look groggily around your old house.
+You look at the cozy red blanket and white pillow of your aging bed.
+You feel the exhaustion of your labored flesh and its yearning for more rest.
+You rest the temptation from your bed.
+Kelp. It is sustenance. It is fuel. It is god.
+You stare at your empty pot and feel your stomach rumble in hunger.
+You remember you have some leftover soup in the fridge.
+you began heating the kelp soup.
+You open the door of your Refeigtor and find a [Large Bowl of Uncooked Kelp Soup] and [Shrimp].
+Interact.
+Your turtle appears bored, he stares at you intently.
+You remember you had forgotten to feed your turtle for a week.
+Do you take the [Large Bowl of Uncooked Kelp Soup]?
+Do you feed the turtle?
+You throw the [Shrimp] into the tank. Your Turtle hungrily consumes bites into the [Shrimp].
+You notice your turtle seems sleepy and decide to leave him alone.
+Looking closer you notice he appears a bit famished.
+You crack open the jar of turtle food but find it empty.
+You suddenly remember that it wasn't that you forgot to feed the turtle, it was that you kept forgetting to buy turtle food.
+You recall you managed to catch a [Shrimp] yesterday and placed it in the refrigerator.
+You decide to leave the turtle as is.
+You have work today.
+Interact.
+Do you take the [Shrimp]?
+You walk out of the house.
+Your Inventory is full.
+Do you wish to replace your [backpack] with [backpack]?
+Are you sure [backpack] has a larger capacity than [backpack]?
+Error, you have more items than the [backpack] can hold.
+You give in to your exhaustion and fall onto the bed.
+You take a deep breath of the polluted waters as you look around the streets.
+You cough.
+You should probaly go to the doctor.
+Interact.
+You walk into the bakery.
+An old man greets you.
+Kelp Bread-Cost: $2-Hunger: 60.
+Kelp Tart-Cost: $1-Hunger 25.
+Bread Stick-Cost: $0.50-Hunger 20.
+You walk out.
+You Walk into the Clinic.
+The Old Doctor greets you.
+The Old Doctor scans you.
+Old Doctor: It appears you have a lung infection and some injuries.
+Old Doctor: $10 for the meds.
+Do you pay?
+Old Doctor: Appears you are fine.
+Old Doctor: Get Out!
+You walk back into your house.
+Interact.
+You walk onto the next street.
+Sir, please vacate the school premises before I call the guards.
+Pastor: Get to work, Jimmy.
+Do you get to work?
+Pastor: Hey, quit standing there.
+Do you walk out?
+You have done a good job. You feel satisfied.
+You have done a poor job. You feel a sense of dread.
+Pastor: Good job! Here’s your pay.
+You clock out and it's time to go home.
+Pastor: By the Kelp gods how did you mess up? Get out!
+It’s late you should go home quickly. Do you go home quickly?

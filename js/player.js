@@ -4,227 +4,291 @@ const player = {
         base: {
             // vitality
             vitality: {
-                current: 0,
-                max: 0,
+                current: {
+                    points: 0,
+                    
+                    /**
+                     * change `current vitality` by `amount`
+                     * @param {*} amount integer
+                     */
+                    change: function(amount) {
+                        this.points += amount
+                        updateUI()
+                    },
+                },
+                max: {
+                    points: 0,
+
+                    /**
+                     * change `max vitality` by `amount`
+                     * @param {*} amount integer
+                     */
+                    change: function(amount) {
+                        this.points += amount
+                        updateUI()
+                    },
+                },
 
                 /**
                  * set `current vitality` to `max vitality`
                  */
                 restore: function() {
-                    this.current = this.max
+                    this.current.points = this.max.points
 
-                    player.updateUI()
+                    updateUI()
                 },
-                /**
-                 * change `vitality` by `amount`
-                 * @param {*} amount int
-                 * @param {*} max boolean, if `true` change `max`, if `false` change `current`
-                 */
-                change: function(amount, max) {
-                    if (max) {
-                        this.max += amount
-                    }
-                    else {
-                        this.current += amount
-                    }
-                    player.updateUI()
-                }
 
             },
             // endurance
             endurance: {
-                current: 0,
-                max: 0,
+                current: {
+                    points: 0,
+                    
+                    /**
+                     * change `current endurance` by `amount`
+                     * @param {*} amount integer
+                     */
+                    change: function(amount) {
+                        this.points += amount
+                        updateUI()
+                    },
+                },
+                max: {
+                    points: 0,
+
+                    /**
+                     * change `max endurance` by `amount`
+                     * @param {*} amount integer
+                     */
+                    change: function(amount) {
+                        this.points += amount
+                        updateUI()
+                    },
+                },
 
                 /**
                  * set `current endurance` to `max endurance`
                  */
                 restore: function() {
-                    this.current = this.max
+                    this.current.points = this.max.points
 
-                    player.updateUI()
-                },
-                /**
-                 * change `endurance` by `amount`
-                 * @param {*} amount int
-                 * @param {*} max boolean, if `true` change `max`, if `false` change `current`
-                 */
-                change: function(amount, max) {
-                    if (max) {
-                        this.max += amount
-                    }
-                    else {
-                        this.current += amount
-                    }
-                    player.updateUI()
+                    updateUI()
                 },
             },
             // strength
             strength: {
-                current: 0,
-                max: 0,
+                current: {
+                    points: 0,
+                    
+                    /**
+                     * change `current strength` by `amount`
+                     * @param {*} amount integer
+                     */
+                    change: function(amount) {
+                        this.points += amount
+                        updateUI()
+                    },
+                },
+                max: {
+                    points: 0,
+
+                    /**
+                     * change `max strength` by `amount`
+                     * @param {*} amount integer
+                     */
+                    change: function(amount) {
+                        this.points += amount
+                        updateUI()
+                    },
+                },
 
                 /**
                  * set `current strength` to `max strength`
                  */
                 restore: function() {
-                    this.current = this.max
+                    this.current.points = this.max.points
 
-                    player.updateUI()
-                },
-                /**
-                 * change `strength` by `amount`
-                 * @param {*} amount int
-                 * @param {*} max boolean, if `true` change `max`, if `false` change `current`
-                 */
-                change: function(amount, max) {
-                    if (max) {
-                        this.max += amount
-                    }
-                    else {
-                        this.current += amount
-                    }
-                    player.updateUI()
+                    updateUI()
                 },
             },
             // agility
             agility: {
-                current: 0,
-                max: 0,
+                current: {
+                    points: 0,
+                    
+                    /**
+                     * change `current agility` by `amount`
+                     * @param {*} amount integer
+                     */
+                    change: function(amount) {
+                        this.points += amount
+                        updateUI()
+                    },
+                },
+                max: {
+                    points: 0,
+
+                    /**
+                     * change `max agility` by `amount`
+                     * @param {*} amount integer
+                     */
+                    change: function(amount) {
+                        this.points += amount
+                        updateUI()
+                    },
+                },
 
                 /**
                  * set `current agility` to `max agility`
                  */
                 restore: function() {
-                    this.current = this.max
+                    this.current.points = this.max.points
 
-                    player.updateUI()
-                },
-                /**
-                 * change `agility` by `amount`
-                 * @param {*} amount int
-                 * @param {*} max boolean, if `true` change `max`, if `false` change `current`
-                 */
-                change: function(amount, max) {
-                    if (max) {
-                        this.max += amount
-                    }
-                    else {
-                        this.current += amount
-                    }
-                    player.updateUI()
+                    updateUI()
                 },
             },
             // intelligence
             intelligence: {
-                current: 0,
-                max: 0,
+                current: {
+                    points: 0,
+                    
+                    /**
+                     * change `current intelligence` by `amount`
+                     * @param {*} amount integer
+                     */
+                    change: function(amount) {
+                        this.points += amount
+                        updateUI()
+                    },
+                },
+                max: {
+                    points: 0,
+
+                    /**
+                     * change `max intelligence` by `amount`
+                     * @param {*} amount integer
+                     */
+                    change: function(amount) {
+                        this.points += amount
+                        updateUI()
+                    },
+                },
 
                 /**
                  * set `current intelligence` to `max intelligence`
                  */
                 restore: function() {
-                    this.current = this.max
+                    this.current.points = this.max.points
 
-                    player.updateUI()
-                },
-                /**
-                 * change `intelligence` by `amount`
-                 * @param {*} amount int
-                 * @param {*} max boolean, if `true` change `max`, if `false` change `current`
-                 */
-                change: function(amount, max) {
-                    if (max) {
-                        this.max += amount
-                    }
-                    else {
-                        this.current += amount
-                    }
-                    player.updateUI()
+                    updateUI()
                 },
             },
             // wisdom
             wisdom: {
-                current: 0,
-                max: 0,
+                current: {
+                    points: 0,
+                    
+                    /**
+                     * change `current wisdom` by `amount`
+                     * @param {*} amount integer
+                     */
+                    change: function(amount) {
+                        this.points += amount
+                        updateUI()
+                    },
+                },
+                max: {
+                    points: 0,
+
+                    /**
+                     * change `max wisdom` by `amount`
+                     * @param {*} amount integer
+                     */
+                    change: function(amount) {
+                        this.points += amount
+                        updateUI()
+                    },
+                },
 
                 /**
                  * set `current wisdom` to `max wisdom`
                  */
                 restore: function() {
-                    this.current = this.max
+                    this.current.points = this.max.points
 
-                    player.updateUI()
-                },
-                /**
-                 * change `wisdom` by `amount`
-                 * @param {*} amount int
-                 * @param {*} max boolean, if `true` change `max`, if `false` change `current`
-                 */
-                change: function(amount, max) {
-                    if (max) {
-                        this.max += amount
-                    }
-                    else {
-                        this.current += amount
-                    }
-                    player.updateUI()
+                    updateUI()
                 },
             },
             // perception
             perception: {
-                current: 0,
-                max: 0,
+                current: {
+                    points: 0,
+                    
+                    /**
+                     * change `current perception` by `amount`
+                     * @param {*} amount integer
+                     */
+                    change: function(amount) {
+                        this.points += amount
+                        updateUI()
+                    },
+                },
+                max: {
+                    points: 0,
+
+                    /**
+                     * change `max perception` by `amount`
+                     * @param {*} amount integer
+                     */
+                    change: function(amount) {
+                        this.points += amount
+                        updateUI()
+                    },
+                },
 
                 /**
                  * set `current perception` to `max perception`
                  */
                 restore: function() {
-                    this.current = this.max
+                    this.current.points = this.max.points
 
-                    player.updateUI()
-                },
-                /**
-                 * change `perception` by `amount`
-                 * @param {*} amount int
-                 * @param {*} max boolean, if `true` change `max`, if `false` change `current`
-                 */
-                change: function(amount, max) {
-                    if (max) {
-                        this.max += amount
-                    }
-                    else {
-                        this.current += amount
-                    }
-                    player.updateUI()
+                    updateUI()
                 },
             },
             // charisma
             charisma: {
-                current: 0,
-                max: 0,
+                current: {
+                    points: 0,
+                    
+                    /**
+                     * change `current charisma` by `amount`
+                     * @param {*} amount integer
+                     */
+                    change: function(amount) {
+                        this.points += amount
+                        updateUI()
+                    },
+                },
+                max: {
+                    points: 0,
+
+                    /**
+                     * change `max charisma` by `amount`
+                     * @param {*} amount integer
+                     */
+                    change: function(amount) {
+                        this.points += amount
+                        updateUI()
+                    },
+                },
 
                 /**
                  * set `current charisma` to `max charisma`
                  */
                 restore: function() {
-                    this.current = this.max
+                    this.current.points = this.max.points
 
-                    player.updateUI()
-                },
-                /**
-                 * change `charisma` by `amount`
-                 * @param {*} amount int
-                 * @param {*} max boolean, if `true` change `max`, if `false` change `current`
-                 */
-                change: function(amount, max) {
-                    if (max) {
-                        this.max += amount
-                    }
-                    else {
-                        this.current += amount
-                    }
-                    player.updateUI()
+                    updateUI()
                 },
             },
 
@@ -253,7 +317,7 @@ const player = {
                 restore: function() {
                     this.current = this.max
 
-                    player.updateUI()
+                    updateUI()
                 },
                 /**
                  * recalculate `max hp`
@@ -261,7 +325,7 @@ const player = {
                 recalculate: function() {
                     this.max = player.stats.base.vitality.current * 10
 
-                    player.updateUI()
+                    updateUI()
                 },
                 /**
                  * change `current hp` by `amount`
@@ -276,7 +340,7 @@ const player = {
                         gameOver();
                     };
 
-                    player.updateUI()
+                    updateUI()
                 },
             },
             mana: {
@@ -289,7 +353,7 @@ const player = {
                 restore: function() {
                     this.current = this.max
 
-                    player.updateUI()
+                    updateUI()
                 },
                 /**
                  * recalculate `max mana`
@@ -302,7 +366,7 @@ const player = {
                         this.max = 0
                     }
 
-                    player.updateUI()
+                    updateUI()
                 },
                 /**
                  * change `current mana` by `amount`
@@ -317,7 +381,7 @@ const player = {
                         broken();
                     }
 
-                    player.updateUI()
+                    updateUI()
                 }
             },
         },
@@ -332,7 +396,7 @@ const player = {
                 restore: function() {
                     this.current = this.max
 
-                    player.updateUI()
+                    updateUI()
                 },
                 /**
                  * change `current hunger` by `amount`
@@ -348,7 +412,7 @@ const player = {
                         player.status.negative.starvation.have = true;
                     };
 
-                    player.updateUI()
+                    updateUI()
                 },
             },
             thirst: {
@@ -361,7 +425,7 @@ const player = {
                 restore: function() {
                     this.current = this.max
 
-                    player.updateUI()
+                    updateUI()
                 },
                 /**
                  * change `current thirst` by `amount`
@@ -377,7 +441,7 @@ const player = {
                         player.status.negative.dehydration.have = true;
                     };
 
-                    player.updateUI()
+                    updateUI()
                 },
 
             },
@@ -390,7 +454,7 @@ const player = {
                 this.hunger.change(-25)
                 this.thirst.change(-50)
 
-                player.updateUI()
+                updateUI()
             },
         },
         miscellaneous: {
@@ -404,12 +468,12 @@ const player = {
                         restore: function() {
                             this.current = this.max
 
-                            player.updateUI()
+                            updateUI()
                         },
                         recalculate: function() {
                             this.max = player.stats.miscellaneous.level.current * 5 + 5 - this.used
 
-                            player.updateUI()
+                            updateUI()
                         }
                     },
                 },
@@ -479,7 +543,7 @@ const player = {
                 window.alert("Error: inventory is full")
             }
 
-            player.updateUI()
+            updateUI()
         },
         /**
          * recalculate inventory slot
@@ -495,7 +559,7 @@ const player = {
                 }
             }
 
-            player.updateUI()
+            updateUI()
         },
 
 
@@ -503,147 +567,28 @@ const player = {
         
     },
     scene: {
-        role: "None",
-        number: 0,
-        /**
-         * change `role` to `newRole`
-         * @param {*} newRole string
-         */
-        changeRole: function(newRole) {
-            this.role = newRole
+        role: {
+            current: "None",
+
+            /**
+             * change `current role` to `newRole`
+             * @param {*} newRole string
+             */
+            change: function(newRole) {
+                this.current = newRole
+            },
         },
-        /**
-         * change `number` to `newNumber`
-         * @param {*} newNumber integer
-         */
-        changeNumber: function(newNumber) {
-            this.number = newNumber
-        }
+        number: {
+            current: 0,
+
+            /**
+             * change `current number` to `newNumber`
+             * @param {*} newNumber integer
+             */
+            change: function(newNumber) {
+                this.current = newNumber
+            },
+        },
+
     },
-
-    /**
-     * update UI
-     */
-    updateUI: function() {
-        //base
-        currentVitalityStat.innerText = player.stats.base.vitality.current
-        currentEnduranceStat.innerText = player.stats.base.endurance.current
-        currentStrengthStat.innerText = player.stats.base.strength.current
-        currentAgilityStat.innerText = player.stats.base.agility.current
-        currentIntelligenceStat.innerText = player.stats.base.intelligence.current
-        currentWisdomStat.innerText = player.stats.base.wisdom.current
-        currentPerceptionStat.innerText = player.stats.base.perception.current
-        currentCharismaStat.innerText = player.stats.base.charisma.current
-
-        maxVitalityStat.innerText = player.stats.base.vitality.max
-        maxEnduranceStat.innerText = player.stats.base.endurance.max
-        maxStrengthStat.innerText = player.stats.base.strength.max
-        maxAgilityStat.innerText = player.stats.base.agility.max
-        maxIntelligenceStat.innerText = player.stats.base.intelligence.max
-        maxWisdomStat.innerText = player.stats.base.wisdom.max
-        maxPerceptionStat.innerText = player.stats.base.perception.max
-        maxCharismaStat.innerText = player.stats.base.charisma.max
-
-        //combat
-        currentHealthStat.innerText = player.stats.combat.hp.current
-        currentManaStat.innerText = player.stats.combat.mana.current
-
-        maxHealthStat.innerText = player.stats.combat.hp.max
-        maxManaStat.innerText = player.stats.combat.mana.max
-
-        //sustenance
-        currentHungerStat.innerText = player.stats.sustenance.hunger.current
-        currentThirstStat.innerText = player.stats.sustenance.hunger.current
-
-        maxHungerStat.innerText = player.stats.sustenance.hunger.max
-        maxThirstStat.innerText = player.stats.sustenance.thirst.max
-
-        //inventory
-        storageUnit.innerText = player.inventory.slots[0].name
-
-            //1
-        if (player.inventory.slots[1] == null) {
-            inventorySlot1.innerText = ""
-        }
-        else if (player.inventory.slots[1] == " ") {
-            inventorySlot1.innerText = " "
-        }
-        else {
-            inventorySlot1.innerText = player.inventory.slots[1].name
-        }
-            //2
-        if (player.inventory.slots[2] == null) {
-            inventorySlot2.innerText = ""
-        }
-        else if (player.inventory.slots[2] == " ") {
-            inventorySlot2.innerText = " "
-        }
-        else {
-            inventorySlot2.innerText = player.inventory.slots[2].name
-        }
-            //3
-        if (player.inventory.slots[3] == null) {
-            inventorySlot3.innerText = ""
-        }
-        else if (player.inventory.slots[3] == " ") {
-            inventorySlot3.innerText = " "
-        }
-        else {
-            inventorySlot3.innerText = player.inventory.slots[3].name
-        }
-            //4
-        if (player.inventory.slots[4] == null) {
-            inventorySlot4.innerText = ""
-        }
-        else if (player.inventory.slots[4] == " ") {
-            inventorySlot4.innerText = " "
-        }
-        else {
-            inventorySlot4.innerText = player.inventory.slots[4].name
-        }
-            //5
-        if (player.inventory.slots[5] == null) {
-            inventorySlot5.innerText = ""
-        }
-        else if (player.inventory.slots[5] == " ") {
-            inventorySlot5.innerText = " "
-        }
-        else {
-            inventorySlot5.innerText = player.inventory.slots[5].name
-        }
-            //6
-        if (player.inventory.slots[6] == null) {
-            inventorySlot6.innerText = ""
-        }
-        else if (player.inventory.slots[6] == " ") {
-            inventorySlot6.innerText = " "
-        }
-        else {
-            inventorySlot6.innerText = player.inventory.slots[6].name
-        }
-            //7
-        if (player.inventory.slots[7] == null) {
-            inventorySlot7.innerText = ""
-        }
-        else if (player.inventory.slots[7] == " ") {
-            inventorySlot7.innerText = " "
-        }
-        else {
-            inventorySlot7.innerText = player.inventory.slots[7].name
-        }
-            //8
-        if (player.inventory.slots[8] == null) {
-            inventorySlot8.innerText = ""
-        }
-        else if (player.inventory.slots[8] == " ") {
-            inventorySlot8.innerText = " "
-        }
-        else {
-            inventorySlot8.innerText = player.inventory.slots[8].name
-        }
-
-        //scene
-        character.innerText = player.scene.role
-        sceneNumber.innerText = player.scene.number
-    }
 };
